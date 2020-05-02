@@ -14,7 +14,7 @@ import random
 # Initialize variables
 APPNAME = "carnet"
 
-DEBUG = True
+DEBUG = False
 
 MQTT_HOST = "HOSTNAME"
 MQTT_PORT = 1883
