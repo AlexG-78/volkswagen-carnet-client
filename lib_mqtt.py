@@ -84,11 +84,11 @@ def connect():
 
     # Attempt to connect
     try:
-    if MQTT_AUTH == True:
-        mqttc.username_pw_set(username=MQTT_USER,password=MQTT_PASSWORD)
-        mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
-    else:
-        mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
+       if MQTT_AUTH == True:
+          mqttc.username_pw_set(username=MQTT_USER,password=MQTT_PASSWORD)
+          mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
+       else:
+          mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
     except Exception:
         sys.exit(2)
 
