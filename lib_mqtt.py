@@ -14,15 +14,17 @@ import random
 # Initialize variables
 APPNAME = "carnet"
 
-DEBUG = False
+DEBUG = True
 
-MQTT_HOST = "<mqtt-server>"
+MQTT_HOST = "HOSTNAME"
 MQTT_PORT = 1883
 MQTT_CLIENT_ID = APPNAME + "_%d" % os.getpid()
 MQTT_QOS = 0
 MQTT_RETAIN = False
 MQTT_CLEAN_SESSION = True
 MQTT_LWT = "/clients/carnet"
+MQTT_USER = "USERNAME"
+MQTT_PASSWORD = "PASSWORD"
 
 # Create the MQTT client
 def init():
@@ -82,6 +84,7 @@ def connect():
 
     # Attempt to connect
     try:
+        mqttc.username_pw_set(username=MQTT_USER,password=MQTT_PASSWORD)
         mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
     except Exception:
         sys.exit(2)
