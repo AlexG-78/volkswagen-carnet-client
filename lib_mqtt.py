@@ -25,7 +25,7 @@ MQTT_CLEAN_SESSION = True
 MQTT_LWT = "/clients/carnet"
 MQTT_USER = "USERNAME"
 MQTT_PASSWORD = "PASSWORD"
-
+MQTT_AUTH = True
 # Create the MQTT client
 def init():
     global mqttc
@@ -84,7 +84,10 @@ def connect():
 
     # Attempt to connect
     try:
+    if MQTT_AUTH == True:
         mqttc.username_pw_set(username=MQTT_USER,password=MQTT_PASSWORD)
+        mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
+    else:
         mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
     except Exception:
         sys.exit(2)
