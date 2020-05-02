@@ -9,6 +9,8 @@ Clone the Github repo and if you want to use mqtt, enter the correct MQTT-broker
 ```
 MQTT_HOST = "<hostname or IP>" <- host where your mqtt broker runs
 MQTT_PORT = <port> <- port of your mqtt service, default is 1883
+MQTT_USER = Username for MQTT Broker
+MQTT_PASSWORD = Password for MQTT Broker
 ```
 
 Install requests and paho-mqtt:
